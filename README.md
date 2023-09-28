@@ -17,4 +17,4 @@ For the code to run automatically on start-up save the appropriate file (simple-
 
 # Printed Circuit Board
 
-Details of the printed circuit board see (PenguinTutor Pico Lights Board)[https://www.penguintutor.com/projects/pico-lights]
+Details of the printed circuit board see [PenguinTutor Pico Lights Board](https://www.penguintutor.com/projects/pico-lights)
