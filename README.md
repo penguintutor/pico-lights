@@ -17,4 +17,6 @@ For the code to run automatically on start-up save the appropriate file (simple-
 
 # Printed Circuit Board
 
-Details of the printed circuit board see [PenguinTutor Pico Lights Board](https://www.penguintutor.com/projects/pico-lights)
+The design files for the PCB are included in the folder pcb-design. This includes a zip of the gerber files which are exported for JLCPCB. Other manufacturers may need the files to be in a different format.
+
+For further details of the printed circuit board see [PenguinTutor Pico Lights Board](https://www.penguintutor.com/projects/pico-lights) 
