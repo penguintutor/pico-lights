@@ -38,7 +38,7 @@ action = ["twinkle", "static", "static"]
 # Count of the intervals between flashes
 count = [0,0,0]
 
-twinkle_seq = [16000,32000,50000,65535,65535,65535,50000,32000,16000,0,0,0]
+twinkle_seq = [32000,32000,50000,65535,65535,65535,50000,32000,32000,32000,32000,32000]
 
 # Flash rate = number of times each loop before changing
 flash_rate = 10
@@ -62,11 +62,11 @@ def turn_off (pin):
 # Uses out to toggle - sets led to same
 def toggle_out (pin):
     # If off turn on
-    if action[pin] == "static" and out[pin].duty_u16()<16000:
+    if action[pin] == "static" and out[pin].duty_u16()<32000:
         out[pin].duty_u16(FULL_ON)
         action[pin] = "static"
     # if on change to flash
-    elif action[pin] == "static" and out[pin].duty_u16()>=16000:
+    elif action[pin] == "static" and out[pin].duty_u16()>=32000:
         action[pin] = "flash"
     elif action[pin] == "flash":
         action[pin] = "twinkle"
@@ -94,9 +94,10 @@ def twinkle (pin):
         count[pin] += 1
     # if passed end of seq then one in 6 chance of resetting (only if 0)
     else:
-        rand_no = random.randint(0,4)
-        if rand_no == 0:
-            count[pin] = 0
+#        rand_no = random.randint(0,4)
+#        if rand_no == 0:
+#            count[pin] = 0
+        count[pin] = 0
         
 
 # Twinkle - short flashes
@@ -218,7 +219,7 @@ async def main ():
         #onboard.on()
         # Enable following line for heartbeat debug messages
         #print ("heartbeat")
-        await asyncio.sleep(0.1)
+        await asyncio.sleep(0.08)
         # Check gpio pins 10 times between checks for webpage (5 secs)
         check_gpio_buttons()
         # If flash or toggle then call appropriate function
